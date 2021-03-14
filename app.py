@@ -2,23 +2,7 @@ import csv
 from flask import Flask, render_template, request, url_for
 app = Flask(__name__)
 
-def mega_sena(game):
-    result = ''
-    match = ''
-    with open('mega.csv') as csvfile:
-        csv_reader = csv.reader(csvfile, delimiter=',')
-        for row in csv_reader:
-            result = set(row[2:-2])
-            match = game.intersection(result)
-            if len(match) == 4:
-                print(f'Voce poderia ter ganho na quadra em {row[1]} {row[2:-2]}')
-            if len(match) == 5:
-                print(f'Voce poderia ter ganho na quina em {row[1]} {row[2:-2]}')
-            if len(match) == 6:
-                print(f'Voce poderia ter ganho na sena em {row[1]} {row[2:-2]}')
-
 def lotto(game):
-    
     result = dict()
     match = ''
     with open('lotto.csv') as csvfile:
@@ -49,10 +33,8 @@ def home():
         dez6 = request.form.get('dez_06')
         mygame = {dez1, dez2, dez3, dez4, dez5, dez6}
         mygame = set([item.replace("0","") if int(item)<=10 else item for item in mygame ])
-        
         result = ''
         match = ''
-        
         with open('mega.csv') as csvfile:
             csv_reader = csv.reader(csvfile, delimiter=',')
             for row in csv_reader:

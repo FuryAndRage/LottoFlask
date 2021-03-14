@@ -21,9 +21,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid text-center justify-content-center">
           <a class="navbar-brand fs-2" href="#"><img src="{{url_for('static', filename='trevo.png')}}" style="height: 1.5em; width: 2.5em;"/><span class=" bg-success text-white">Lotto</span><span class="bg-light text-success">Flask</span></a>
-         
         </div>
-      </nav>
+    </nav>
 {% block main %}{% endblock main %}
 {% block js %}{% endblock js %}
 <script src="{{url_for('static', filename='main.js')}}"></script>
