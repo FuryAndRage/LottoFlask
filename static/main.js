@@ -28,15 +28,13 @@ function pega(value, id){
                     dez3.value = lista[2]
                     dez4.value = lista[3]
                     dez5.value = lista[4]
-                    dez6.value = lista[5]
-                    
+                    dez6.value = lista[5]   
                 }
                 else{
                     
                     button_verify.style.visibility = "hidden"  
                 }
-            }   
-                  
+            }        
         }
         else{
             var indice = lista.indexOf(item.value)
@@ -45,16 +43,10 @@ function pega(value, id){
                
             }
             lbl.classList.remove("btn-success", "text-white")
-            lbl.classList.add("btn-outline-success")
-            
-            
-            
+            lbl.classList.add("btn-outline-success")  
         }
     }) // end eventlistener change
-
-    
 }
-
 //cria os numeros de 1 a 60 e append na div #numeros
 var div = document.getElementById("numeros")
 for(var item = 1; item<=60; item ++){
@@ -83,7 +75,6 @@ for(var item = 1; item<=60; item ++){
     div.appendChild(col2)
    
 }
-
 var checkBtn = document.getElementsByClassName('btn-check')
 for (item of checkBtn){
 
