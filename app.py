@@ -2,23 +2,24 @@ import csv
 from flask import Flask, render_template, request, url_for
 app = Flask(__name__)
 
-def lotto(game):
-    result = dict()
-    match = ''
-    with open('lotto.csv') as csvfile:
-        csv_reader = csv.reader(csvfile, delimiter=',')
-        for row in csv_reader:
-            result['balls'] = set(row[2:-2])
-            result['powerball'] = row[-1]
-            match =  game.get('balls').intersection(result.get('balls'))
-            if len(match) == 6 and result.get('powerball') != game.get('powerball'):
-                print(f'Voce poderia ter ganho na lotto em {row[1]} {row[2:-2]}')
-            if len(match) == 6 and result.get('powerball') == game.get('powerball'):
-                print(f'Voce poderia ter ganho na powerball em {row[1]} {row[2:-2]} {row[-1]}')
-            if len(match) == 5:
-                print(f'Voce acertou 5 dezenas em {row[1]} {row[2:-2]}')
-            if len(match) == 4:
-                print(f'Voce acertou 4 dezenas em {row[1]} {row[2:-2]}')
+# def lotto(game):
+#     result = dict()
+#     match = ''
+#     with open('lotto.csv') as csvfile:
+#         csv_reader = csv.reader(csvfile, delimiter=',')
+#         for row in csv_reader:
+#             result['balls'] = set(row[2:-2])
+#             result['powerball'] = row[-1]
+#             match =  game.get('balls').intersection(result.get('balls'))
+#             if len(match) == 6 and result.get('powerball') != game.get('powerball'):
+#                 print(f'Voce poderia ter ganho na lotto em {row[1]} {row[2:-2]}')
+#                 pass
+#             if len(match) == 6 and result.get('powerball') == game.get('powerball'):
+#                 print(f'Voce poderia ter ganho na powerball em {row[1]} {row[2:-2]} {row[-1]}')
+#             if len(match) == 5:
+#                 print(f'Voce acertou 5 dezenas em {row[1]} {row[2:-2]}')
+#             if len(match) == 4:
+#                 print(f'Voce acertou 4 dezenas em {row[1]} {row[2:-2]}')
             
 @app.route('/', methods=['GET', 'POST'])
 def home():
